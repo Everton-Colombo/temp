@@ -40,3 +40,64 @@ make[1]: *** [/usr/src/linux-headers-6.6.28-ophub/Makefile:697: xconfig] Error 2
 make: *** [Makefile:234: __sub-make] Error 2
 root@armbian:/lib/modules/6.6.28-ophub/build# 
 
+root@armbian:/lib/modules/6.6.28-ophub/build# sudo cp /boot/config-6.6.28-ophub  .config
+root@armbian:/lib/modules/6.6.28-ophub/build# sudo cp /boot/System.map-6.6.28-ophub System.map
+root@armbian:/lib/modules/6.6.28-ophub/build# sudo ls /boot/
+armbian_first_run.txt.template	u-boot-s905x2-s922.bin
+boot.bmp			u-boot-s905x3.bin
+boot.cmd			u-boot-s905x-s905lb.bin
+boot.ini			u-boot-s905x-s912.bin
+boot.scr			u-boot.sd
+config-6.6.28-ophub		u-boot-sei510.bin
+dtb				u-boot-sei610.bin
+emmc_autoscript			u-boot-skyworth-lb2004.bin
+emmc_autoscript.cmd		u-boot-tx3-bz.bin
+extlinux			u-boot-tx3-qz.bin
+initrd.img-6.6.28-ophub		u-boot-u200.bin
+System.map-6.6.28-ophub		u-boot-ugoos-x3.bin
+u-boot-e900v22c.bin		u-boot.usb
+u-boot-gtking.bin		u-boot-x96max.bin
+u-boot-gtkingpro.bin		u-boot-x96maxplus.bin
+u-boot-gtkingpro-rev-a.bin	u-boot-zyxq.bin
+u-boot-n1.bin			uEnv.txt
+u-boot-odroid-n2.bin		uInitrd
+u-boot-p201.bin			uInitrd-6.6.28-ophub
+u-boot-p212.bin			vmlinuz-6.6.28-ophub
+u-boot-r3300l.bin		zImage
+u-boot-s905.bin
+root@armbian:/lib/modules/6.6.28-ophub/build# sudo make scripts
+  SYNC    include/config/auto.conf.cmd
+can't find file Kconfig
+make[3]: *** [scripts/kconfig/Makefile:77: syncconfig] Error 1
+make[2]: *** [Makefile:697: syncconfig] Error 2
+make[1]: *** [/usr/src/linux-headers-6.6.28-ophub/Makefile:798: include/config/auto.conf.cmd] Error 2
+make[1]: *** [include/config/auto.conf.cmd] Deleting file 'include/generated/rustc_cfg'
+make[1]: *** [include/config/auto.conf.cmd] Deleting file 'include/generated/autoconf.h'
+make: *** [Makefile:234: __sub-make] Error 2
+
+---------
+
+WARNING: Module.symvers is missing.
+         Modules may not have dependencies or modversions.
+         You may get many unresolved symbol errors.
+         You can set KBUILD_MODPOST_WARN=1 to turn errors into warning
+         if you want to proceed at your own risk.
+ERROR: modpost: "skb_pull" [/root/rtl8189ES_linux/8189fs.ko] undefined!
+ERROR: modpost: "rtnl_is_locked" [/root/rtl8189ES_linux/8189fs.ko] undefined!
+ERROR: modpost: "__arch_copy_to_user" [/root/rtl8189ES_linux/8189fs.ko] undefined!
+ERROR: modpost: "cancel_work_sync" [/root/rtl8189ES_linux/8189fs.ko] undefined!
+ERROR: modpost: "unregister_inet6addr_notifier" [/root/rtl8189ES_linux/8189fs.ko] undefined!
+ERROR: modpost: "memcmp" [/root/rtl8189ES_linux/8189fs.ko] undefined!
+ERROR: modpost: "vfree" [/root/rtl8189ES_linux/8189fs.ko] undefined!
+ERROR: modpost: "__cfg80211_alloc_event_skb" [/root/rtl8189ES_linux/8189fs.ko] undefined!
+ERROR: modpost: "wiphy_register" [/root/rtl8189ES_linux/8189fs.ko] undefined!
+ERROR: modpost: "nla_put" [/root/rtl8189ES_linux/8189fs.ko] undefined!
+WARNING: modpost: suppressed 173 unresolved symbol warnings because there were too many)
+make[3]: *** [scripts/Makefile.modpost:145: /root/rtl8189ES_linux/Module.symvers] Error 1
+make[2]: *** [/mnt/usb/linux-6.6.28/Makefile:1865: modpost] Error 2
+make[1]: *** [Makefile:234: __sub-make] Error 2
+make[1]: Leaving directory '/mnt/usb/linux-6.6.28'
+make: *** [Makefile:2298: modules] Error 2
+
+
+
