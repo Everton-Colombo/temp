@@ -75,6 +75,7 @@ make[1]: *** [include/config/auto.conf.cmd] Deleting file 'include/generated/rus
 make[1]: *** [include/config/auto.conf.cmd] Deleting file 'include/generated/autoconf.h'
 make: *** [Makefile:234: __sub-make] Error 2
 
+<<<<<<< HEAD
 ---------
 
 WARNING: Module.symvers is missing.
@@ -100,4 +101,6 @@ make[1]: Leaving directory '/mnt/usb/linux-6.6.28'
 make: *** [Makefile:2298: modules] Error 2
 
 
+=======
+>>>>>>> 0107022693f406a5048a35bf6202cc647be01a66
 
