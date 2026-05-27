@@ -119,3 +119,18 @@ root@armbian:~/rtl8189ES_linux# dmesg | tail -n 10
 [ 5164.808231] 8189fs: Unknown symbol cfg80211_mgmt_tx_status_ext (err -2)
 
 
+root@armbian:~/rtl8189ES_linux# sudo insmod 8189fs.ko
+Segmentation fault
+root@armbian:~/rtl8189ES_linux# dmesg | tail -n 10
+[ 5373.871637]  init_module_from_file+0x88/0xcc
+[ 5373.875884]  __arm64_sys_finit_module+0x168/0x35c
+[ 5373.880565]  invoke_syscall+0x48/0x114
+[ 5373.884291]  el0_svc_common.constprop.0+0x40/0xe0
+[ 5373.888971]  do_el0_svc+0x1c/0x28
+[ 5373.892263]  el0_svc+0x48/0x134
+[ 5373.895385]  el0t_64_sync_handler+0x120/0x12c
+[ 5373.899717]  el0t_64_sync+0x1a4/0x1a8
+[ 5373.903361] Code: 540005e0 f94016a0 aa1a03e2 aa1703e1 (f9406400) 
+[ 5373.909427] ---[ end trace 0000000000000000 ]---
+
+
