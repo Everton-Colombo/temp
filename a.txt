@@ -104,3 +104,18 @@ make: *** [Makefile:2298: modules] Error 2
 =======
 >>>>>>> 0107022693f406a5048a35bf6202cc647be01a66
 
+root@armbian:~/rtl8189ES_linux# sudo insmod 8189fs.ko
+insmod: ERROR: could not insert module 8189fs.ko: Unknown symbol in module
+root@armbian:~/rtl8189ES_linux# dmesg | tail -n 10
+[ 5164.753353] 8189fs: Unknown symbol cfg80211_roamed (err -2)
+[ 5164.758883] 8189fs: Unknown symbol cfg80211_put_bss (err -2)
+[ 5164.764536] 8189fs: Unknown symbol cfg80211_connect_done (err -2)
+[ 5164.770611] 8189fs: Unknown symbol cfg80211_unlink_bss (err -2)
+[ 5164.776491] 8189fs: Unknown symbol cfg80211_inform_bss_frame_data (err -2)
+[ 5164.783344] 8189fs: Unknown symbol cfg80211_new_sta (err -2)
+[ 5164.788989] 8189fs: Unknown symbol __cfg80211_alloc_reply_skb (err -2)
+[ 5164.795466] 8189fs: Unknown symbol cfg80211_rx_mgmt_ext (err -2)
+[ 5164.801451] 8189fs: Unknown symbol wiphy_apply_custom_regulatory (err -2)
+[ 5164.808231] 8189fs: Unknown symbol cfg80211_mgmt_tx_status_ext (err -2)
+
+
