@@ -312,4 +312,24 @@ OBJ-M IS []
 make -f ./scripts/Makefile.modfinal
 make[1]: Leaving directory '/usr/src/linux-headers-6.6.28-ophub'
 
+root@armbian:~/rtl8189ES_linux# make
+make ARCH=arm64 CROSS_COMPILE= KERNELRELEASE=6.6.28-ophub -C /lib/modules/6.6.28-ophub/build M=/root/rtl8189ES_linux  modules
+make[1]: Entering directory '/usr/src/linux-headers-6.6.28-ophub'
+warning: the compiler differs from the one used to build the kernel
+  The kernel was built by: aarch64-none-elf-gcc (Arm GNU Toolchain 13.2.rel1 (Build arm-13.7)) 13.2.1 20231009
+  You are using:           gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+  CC [M]  /root/rtl8189ES_linux/core/rtw_cmd.o
+In file included from ./include/linux/types.h:6,
+                 from /root/rtl8189ES_linux/include/basic_types.h:75,
+                 from /root/rtl8189ES_linux/include/drv_types.h:26,
+                 from /root/rtl8189ES_linux/core/rtw_cmd.c:17:
+./include/uapi/linux/types.h:5:10: fatal error: asm/types.h: No such file or directory
+    5 | #include <asm/types.h>
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+make[3]: *** [scripts/Makefile.build:243: /root/rtl8189ES_linux/core/rtw_cmd.o] Error 1
+make[2]: *** [/usr/src/linux-headers-6.6.28-ophub/Makefile:1913: /root/rtl8189ES_linux] Error 2
+make[1]: *** [Makefile:234: __sub-make] Error 2
+make[1]: Leaving directory '/usr/src/linux-headers-6.6.28-ophub'
+make: *** [Makefile:2298: modules] Error 2
 
