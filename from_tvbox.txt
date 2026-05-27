@@ -236,5 +236,29 @@ clean  hal          include  Makefile       Module.symvers  platform  wlan0dhcp
 core   ifcfg-wlan0  Kconfig  modules.order  os_dep          runwpa
 root@armbian:~/rtl8189ES_linux# 
 
+root@armbian:~/rtl8189ES_linux# sed -i 's/obj-$(CONFIG_RTL8189FS) := $(MODULE_NAME).o/obj-m := $(MODULE_NAME).o/' Makefile
+root@armbian:~/rtl8189ES_linux# make clean
+#make -C /lib/modules/6.6.28-ophub/build M=/root/rtl8189ES_linux clean
+cd hal ; rm -fr */*/*/*.mod.c */*/*/*.mod */*/*/*.o */*/*/.*.cmd */*/*/*.ko
+cd hal ; rm -fr */*/*.mod.c */*/*.mod */*/*.o */*/.*.cmd */*/*.ko
+cd hal ; rm -fr */*.mod.c */*.mod */*.o */.*.cmd */*.ko
+cd hal ; rm -fr *.mod.c *.mod *.o .*.cmd *.ko
+cd core ; rm -fr */*.mod.c */*.mod */*.o */.*.cmd */*.ko
+cd core ; rm -fr *.mod.c *.mod *.o .*.cmd *.ko
+cd os_dep/linux ; rm -fr *.mod.c *.mod *.o .*.cmd *.ko
+cd os_dep ; rm -fr *.mod.c *.mod *.o .*.cmd *.ko
+cd platform ; rm -fr *.mod.c *.mod *.o .*.cmd *.ko
+rm -fr Module.symvers ; rm -fr Module.markers ; rm -fr modules.order
+rm -fr *.mod.c *.mod *.o .*.cmd *.ko *~
+rm -fr .tmp_versions
+root@armbian:~/rtl8189ES_linux# make
+make ARCH=arm64 CROSS_COMPILE= -C /lib/modules/6.6.28-ophub/build M=/root/rtl8189ES_linux  modules
+make[1]: Entering directory '/usr/src/linux-headers-6.6.28-ophub'
+warning: the compiler differs from the one used to build the kernel
+  The kernel was built by: aarch64-none-elf-gcc (Arm GNU Toolchain 13.2.rel1 (Build arm-13.7)) 13.2.1 20231009
+  You are using:           gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+  MODPOST /root/rtl8189ES_linux/Module.symvers
+make[1]: Leaving directory '/usr/src/linux-headers-6.6.28-ophub'
+root@armbian:~/rtl8189ES_linux# 
 
 
