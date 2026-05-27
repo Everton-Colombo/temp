@@ -141,7 +141,41 @@ root@armbian:~/rtl8189ES_linux# ls
 root@armbian:~/rtl8189ES_linux# sudo modprobe cfg80211 
 root@armbian:~/rtl8189ES_linux# sudo insmod 8189fs.ko 
 Segmentation fault
-root@armbian:~/rtl8189ES_linux# dmesg | tail -n 10
+root@armbian:~/rtl8189ES_linux# dmesg
+[ 1276.723164] 8189fs: loading out-of-tree module taints kernel.
+[ 1276.730308] Unable to handle kernel paging request at virtual address 0008c000b00000e8
+[ 1276.732627] Mem abort info:
+[ 1276.735371]   ESR = 0x0000000096000004
+[ 1276.739112]   EC = 0x25: DABT (current EL), IL = 32 bits
+[ 1276.744400]   SET = 0, FnV = 0
+[ 1276.747417]   EA = 0, S1PTW = 0
+[ 1276.750544]   FSC = 0x04: level 0 translation fault
+[ 1276.755399] Data abort info:
+[ 1276.758257]   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
+[ 1276.763717]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+[ 1276.768745]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+[ 1276.774031] [0008c000b00000e8] address between user and kernel address ranges
+[ 1276.781140] Internal error: Oops: 0000000096000004 [#1] SMP
+[ 1276.786679] Modules linked in: 8189fs(O+) cfg80211 sg cpufreq_powersave cpufreq_conservative cpufreq_userspace sunrpc hci_uart btqca btrtl btintel btbcm panfrost gpu_sched drm_shmem_helper bluetooth snd_soc_meson_axg_sound_card snd_soc_meson_card_utils rfkill binfmt_misc meson_gxbb_wdt meson_vdec(C) zram snd_soc_meson_axg_tdmout snd_soc_meson_axg_frddr snd_soc_meson_g12a_tohdmitx snd_soc_meson_axg_spdifout snd_soc_meson_axg_fifo videobuf2_dma_contig snd_soc_meson_codec_glue v4l2_mem2mem ir_nec_decoder meson_ir snd_soc_meson_axg_tdm_interface snd_soc_meson_axg_tdm_formatter tcp_bbr sch_fq dm_mod nfnetlink ip_tables x_tables
+[ 1276.841713] CPU: 2 PID: 3331 Comm: insmod Tainted: G         C O       6.6.28-ophub #1
+[ 1276.849597] Hardware name: X96 Max (RMII) (DT)
+[ 1276.854018] pstate: 20000005 (nzCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[ 1276.860951] pc : mod_sysfs_setup+0x234/0x694
+[ 1276.865197] lr : mod_sysfs_setup+0x200/0x694
+[ 1276.869444] sp : ffffffc085193a90
+[ 1276.872737] x29: ffffffc085193ac0 x28: ffffffc08397f208 x27: ffffffc083a860c0
+[ 1276.879844] x26: ffffffc07c364118 x25: ffffffc085193c98 x24: ffffffc07c364580
+[ 1276.886950] x23: ffffffc07c364150 x22: 0000000000000000 x21: ffffffc07c34ed30
+[ 1276.894057] x20: 0000000000000000 x19: ffffffc07c364100 x18: 0000000000000000
+[ 1276.901164] x17: 00000000bcb0e035 x16: 00000000fe4a9aac x15: 0000000000000002
+[ 1276.908270] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000006
+[ 1276.915377] x11: ffffffc08342be40 x10: 0000000000000000 x9 : 0000000000000001
+[ 1276.922484] x8 : 0101010101010101 x7 : 7f7f7f7f7f7f7f7f x6 : 6872716475627172
+[ 1276.929590] x5 : 0000000000000000 x4 : 0000000000000000 x3 : 0000000000000000
+[ 1276.936697] x2 : ffffffc07c364118 x1 : ffffffc07c364150 x0 : 9108c000b0000020
+[ 1276.943804] Call trace:
+[ 1276.946232]  mod_sysfs_setup+0x234/0x694
+[ 1276.950131]  load_module+0x1f44/0x2060
 [ 1276.953857]  init_module_from_file+0x88/0xcc
 [ 1276.958104]  __arm64_sys_finit_module+0x168/0x35c
 [ 1276.962784]  invoke_syscall+0x48/0x114
@@ -152,7 +186,7 @@ root@armbian:~/rtl8189ES_linux# dmesg | tail -n 10
 [ 1276.981937]  el0t_64_sync+0x1a4/0x1a8
 [ 1276.985580] Code: 540005e0 f94016a0 aa1a03e2 aa1703e1 (f9406400) 
 [ 1276.991647] ---[ end trace 0000000000000000 ]---
-root@armbian:~/rtl8189ES_linux# 
+
 
 
 
