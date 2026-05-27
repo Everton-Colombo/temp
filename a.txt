@@ -194,6 +194,47 @@ warning: the compiler differs from the one used to build the kernel
   The kernel was built by: aarch64-none-elf-gcc (Arm GNU Toolchain 13.2.rel1 (Build arm-13.7)) 13.2.1 20231009
   You are using:           gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
   MODPOST /root/rtl8189ES_linux/Module.symvers
+make[1]: Leaving directory '/usr/src/linux-headers-6.6.28-ophub
+
+
+root@armbian:~/rtl8189ES_linux# ls
+clean  hal          include  Makefile       Module.symvers  platform  wlan0dhcp
+core   ifcfg-wlan0  Kconfig  modules.order  os_dep          runwpa
+root@armbian:~/rtl8189ES_linux# make clean
+#make -C /lib/modules/6.6.28-ophub/build M=/root/rtl8189ES_linux clean
+cd hal ; rm -fr */*/*/*.mod.c */*/*/*.mod */*/*/*.o */*/*/.*.cmd */*/*/*.ko
+cd hal ; rm -fr */*/*.mod.c */*/*.mod */*/*.o */*/.*.cmd */*/*.ko
+cd hal ; rm -fr */*.mod.c */*.mod */*.o */.*.cmd */*.ko
+cd hal ; rm -fr *.mod.c *.mod *.o .*.cmd *.ko
+cd core ; rm -fr */*.mod.c */*.mod */*.o */.*.cmd */*.ko
+cd core ; rm -fr *.mod.c *.mod *.o .*.cmd *.ko
+cd os_dep/linux ; rm -fr *.mod.c *.mod *.o .*.cmd *.ko
+cd os_dep ; rm -fr *.mod.c *.mod *.o .*.cmd *.ko
+cd platform ; rm -fr *.mod.c *.mod *.o .*.cmd *.ko
+rm -fr Module.symvers ; rm -fr Module.markers ; rm -fr modules.order
+rm -fr *.mod.c *.mod *.o .*.cmd *.ko *~
+rm -fr .tmp_versions
+root@armbian:~/rtl8189ES_linux# make V=1
+make ARCH=arm64 CROSS_COMPILE= -C /lib/modules/6.6.28-ophub/build M=/root/rtl8189ES_linux  modules
+make[1]: Entering directory '/usr/src/linux-headers-6.6.28-ophub'
+make --no-print-directory -C /usr/src/linux-headers-6.6.28-ophub \
+-f /usr/src/linux-headers-6.6.28-ophub/Makefile modules
+warning: the compiler differs from the one used to build the kernel
+  The kernel was built by: aarch64-none-elf-gcc (Arm GNU Toolchain 13.2.rel1 (Build arm-13.7)) 13.2.1 20231009
+  You are using:           gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+make -f ./scripts/Makefile.build obj=/root/rtl8189ES_linux need-builtin=1 need-modorder=1 
+# cmd_modules_order /root/rtl8189ES_linux/modules.order
+  {  :; } > /root/rtl8189ES_linux/modules.order
+sh ./scripts/modules-check.sh /root/rtl8189ES_linux/modules.order
+make -f ./scripts/Makefile.modpost
+# MODPOST /root/rtl8189ES_linux/Module.symvers
+   scripts/mod/modpost -M        -o /root/rtl8189ES_linux/Module.symvers -T /root/rtl8189ES_linux/modules.order -i Module.symvers -e 
+make -f ./scripts/Makefile.modfinal
 make[1]: Leaving directory '/usr/src/linux-headers-6.6.28-ophub'
+root@armbian:~/rtl8189ES_linux# ls
+clean  hal          include  Makefile       Module.symvers  platform  wlan0dhcp
+core   ifcfg-wlan0  Kconfig  modules.order  os_dep          runwpa
+root@armbian:~/rtl8189ES_linux# 
+
 
 
