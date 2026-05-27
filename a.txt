@@ -10,3 +10,33 @@ make[2]: *** [/usr/src/linux-headers-6.6.28-ophub/Makefile:1865: modpost] Error 
 make[1]: *** [Makefile:234: __sub-make] Error 2
 make[1]: Leaving directory '/usr/src/linux-headers-6.6.28-ophub'
 make: *** [Makefile:2298: modules] Error 2
+
+root@armbian:~# cd /lib/modules/6.6.28-ophub/build
+root@armbian:/lib/modules/6.6.28-ophub/build# sudo make scripts
+***
+*** Configuration file ".config" not found!
+***
+*** Please run some configurator (e.g. "make oldconfig" or
+*** "make menuconfig" or "make xconfig").
+***
+make[1]: *** [/usr/src/linux-headers-6.6.28-ophub/Makefile:784: .config] Error 1
+make: *** [Makefile:234: __sub-make] Error 2
+root@armbian:/lib/modules/6.6.28-ophub/build# make menuconfig
+can't find file Kconfig
+make[2]: *** [scripts/kconfig/Makefile:48: menuconfig] Error 1
+make[1]: *** [/usr/src/linux-headers-6.6.28-ophub/Makefile:697: menuconfig] Error 2
+make: *** [Makefile:234: __sub-make] Error 2
+root@armbian:/lib/modules/6.6.28-ophub/build# make oldconfig
+can't find file Kconfig
+make[2]: *** [scripts/kconfig/Makefile:77: oldconfig] Error 1
+make[1]: *** [/usr/src/linux-headers-6.6.28-ophub/Makefile:697: oldconfig] Error 2
+make: *** [Makefile:234: __sub-make] Error 2
+root@armbian:/lib/modules/6.6.28-ophub/build# make xconfig
+*
+* 'make xconfig' requires 'pkg-config'. Please install it.
+*
+make[2]: *** [scripts/kconfig/Makefile:224: scripts/kconfig/qconf-libs] Error 1
+make[1]: *** [/usr/src/linux-headers-6.6.28-ophub/Makefile:697: xconfig] Error 2
+make: *** [Makefile:234: __sub-make] Error 2
+root@armbian:/lib/modules/6.6.28-ophub/build# 
+
