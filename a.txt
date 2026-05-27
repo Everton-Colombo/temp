@@ -134,3 +134,25 @@ root@armbian:~/rtl8189ES_linux# dmesg | tail -n 10
 [ 5373.909427] ---[ end trace 0000000000000000 ]---
 
 
+root@armbian:~/rtl8189ES_linux# ls
+8189fs.ko     8189fs.mod.o  core         include   modules.order   platform
+8189fs.mod    8189fs.o      hal          Kconfig   Module.symvers  runwpa
+8189fs.mod.c  clean         ifcfg-wlan0  Makefile  os_dep          wlan0dhcp
+root@armbian:~/rtl8189ES_linux# sudo modprobe cfg80211 
+root@armbian:~/rtl8189ES_linux# sudo insmod 8189fs.ko 
+Segmentation fault
+root@armbian:~/rtl8189ES_linux# dmesg | tail -n 10
+[ 1276.953857]  init_module_from_file+0x88/0xcc
+[ 1276.958104]  __arm64_sys_finit_module+0x168/0x35c
+[ 1276.962784]  invoke_syscall+0x48/0x114
+[ 1276.966511]  el0_svc_common.constprop.0+0x40/0xe0
+[ 1276.971191]  do_el0_svc+0x1c/0x28
+[ 1276.974484]  el0_svc+0x48/0x134
+[ 1276.977604]  el0t_64_sync_handler+0x120/0x12c
+[ 1276.981937]  el0t_64_sync+0x1a4/0x1a8
+[ 1276.985580] Code: 540005e0 f94016a0 aa1a03e2 aa1703e1 (f9406400) 
+[ 1276.991647] ---[ end trace 0000000000000000 ]---
+root@armbian:~/rtl8189ES_linux# 
+
+
+
