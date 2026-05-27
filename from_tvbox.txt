@@ -333,3 +333,15 @@ make[1]: *** [Makefile:234: __sub-make] Error 2
 make[1]: Leaving directory '/usr/src/linux-headers-6.6.28-ophub'
 make: *** [Makefile:2298: modules] Error 2
 
+root@armbian:/lib/modules/6.6.28-ophub/build# make scripts prepare modules_prepare
+  SYNC    include/config/auto.conf.cmd
+  HOSTLD  scripts/kconfig/conf
+can't find file Kconfig
+make[3]: *** [scripts/kconfig/Makefile:77: syncconfig] Error 1
+make[2]: *** [Makefile:697: syncconfig] Error 2
+make[1]: *** [/usr/src/linux-headers-6.6.28-ophub/Makefile:798: include/config/auto.conf.cmd] Error 2
+make[1]: *** [include/config/auto.conf.cmd] Deleting file 'include/generated/rustc_cfg'
+make[1]: *** [include/config/auto.conf.cmd] Deleting file 'include/generated/autoconf.h'
+make: *** [Makefile:234: __sub-make] Error 2
+
+
