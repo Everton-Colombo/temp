@@ -1,1 +1,3 @@
 sed -i 's/obj-$(CONFIG_RTL8189FS) := $(MODULE_NAME).o/obj-m := $(MODULE_NAME).o/' Makefile
+
+sed -i '1i $(info KERNELRELEASE IS [$(KERNELRELEASE)])\n$(info MODULE_NAME IS [$(MODULE_NAME)])\n$(info OBJ-M IS [$(obj-m)])' Makefile
